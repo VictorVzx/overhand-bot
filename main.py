@@ -158,6 +158,8 @@ async def menu(ctx):
 @bot.command()
 async def todos(ctx):
     await ctx.send("@everyone")
+    usuario = ctx.author.display_name
+    print(f"{usuario} marcou geral.")
 
 # -------- Lembrete de água -------- #
 
