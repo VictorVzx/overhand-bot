@@ -55,10 +55,11 @@ async def dono(ctx):
     usuario = ctx.author.display_name
     print(f"{usuario} usou .dono")
 
-@bot.event()
+@bot.event
 async def on_ready():
     activity = discord.Game(name="Miando incessantemente")
     await bot.change_presence(status=discord.Status.online, activity=activity)
+    print("Bot online com atividade")
 
 
 @bot.command()
