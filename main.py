@@ -49,6 +49,18 @@ async def joao(ctx):
     print(f"{usuario} utilizou .joao")
 
 @bot.command()
+async def gato(ctx):
+    await ctx.reply("Meow!")
+    usuario = ctx.author.display_name
+    print(f"{usuario} utilizou .gato")
+
+@bot.command()
+async def gata(ctx):
+    await ctx.reply("Meow!")
+    usuario = ctx.author.display_name
+    print(f"{usuario} utilizou .gata")
+
+@bot.command()
 async def dono(ctx):
     dono_id = 829402485419409408
     await ctx.reply(f"Meu dono é o <@{dono_id}>!\nGitHub: https://github.com/VictorVzx")
