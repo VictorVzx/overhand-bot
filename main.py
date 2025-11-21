@@ -188,11 +188,32 @@ async def lembrar_agua():
     await channel.send(f"Siga VictorVzx no GitHub e veja mais projetos!\nhttps://github.com/VictorVzx")
     print("Anúncio enviado")
 
-@bot.event
-async def on_ready():
-    activity = discord.Game(name="Miando incessantemente")
-    await bot.change_presence(status=discord.Status.online, activity=activity)
-    print("Bot online com atividade")
+@bot.command()
+async def atividade(ctx, tipo, *, texto):
+    usuario = ctx.author.display_name
+    tipo = tipo.lower()
+
+    if tipo == "jogando":
+        activity = discord.Game(name=texto)
+
+    elif tipo == "ouvindo":
+        activity = discord.Activity(
+            type=discord.ActivityType.listening,
+            name=texto
+        )
+
+    elif tipo == "assistindo":
+        activity = discord.Activity(
+            type=discord.ActivityType.watching,
+            name=texto
+        )
+
+    else:
+        await ctx.send("Tipo inválido! Use: jogando / ouvindo / assistindo")
+        return
+    await bot.change_presence(activity=activity)
+    await ctx.send(f"Atividade mudada para: **{tipo} {texto}**")
+    print(f"{usuario} mudou a atividade do bot.")
 
 
 # -------- Rodar o bot -------- #
