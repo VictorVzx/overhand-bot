@@ -216,6 +216,13 @@ async def atividade(ctx, tipo, *, texto):
     await ctx.send(f"Atividade mudada para: **{tipo} {texto}**")
     print(f"{usuario} mudou a atividade do bot.")
 
+@atividade.error
+async def atividade_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("❌ Você precisa ser **Administrador** para usar este comando.")
+        usuario = ctx.author.display_name
+        print(f"{usuario} usou um comando acima do seu cargo")
+
 
 # -------- Rodar o bot -------- #
 load_dotenv()
