@@ -59,7 +59,10 @@ async def dono(ctx):
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, membro: discord.Member, *, motivo="Nenhum motivo informado"):
     if membro == ctx.author:
+        usuario = ctx.author.display_name
+        print(f"{usuario} tentou se banir")
         return await ctx.send("Meow! Você não pode se banir, doido kkkkk")
+        
     
     if membro == ctx.guild.me:
         return await ctx.send("Meow! Tá tentando fazer eu me banir, é?")
