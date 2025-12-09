@@ -28,6 +28,12 @@ async def on_ready():
 # -------- Comandos -------- #
 
 @bot.command()
+async def olá(ctx):
+    usuario = ctx.author.display_name
+    await ctx.reply(f"Olá, {usuario}! Tudo bem? Use .menu para ver os meus comandos. :) ")
+    print(f"{usuario} utilizou .olá")
+
+@bot.command()
 async def ping(ctx):
     inicio = time.time()
     msg = await ctx.send("> Pong!🏓")
@@ -181,6 +187,7 @@ async def menu(ctx):
         " .uptime --> Ver há quanto tempo o bot está funcionando\n"
         " .dono --> Informações sobre o dono do bot.\n"
         " .gato/gata --> Miaaaaau.\n"
+        ".olá --> Saudações \n"
         "## Comandos admin:\n"
         " .clear *numero de mensagens --> Limpa as mensagens do chat.\n"
         " .todos --> Marca todos do servidor.\n"
