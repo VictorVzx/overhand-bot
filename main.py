@@ -205,6 +205,12 @@ async def todos(ctx):
     usuario = ctx.author.display_name
     print(f"{usuario} marcou geral.")
 
+@bot.command()
+async def site(ctx):
+    await ctx.reply("Acesse o meu site! https://overhandpg.vercel.app")
+    usuario = ctx.author.display_name
+    print(f"Usuario {usuario} utilizou !site")
+
 # -------- Lembrete de água -------- #
 
 @bot.command()
