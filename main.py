@@ -7,7 +7,7 @@ from discord.ext import commands, tasks
 
 
 intents = discord.Intents.all()
-bot = commands.Bot(".", intents=intents)  
+bot = commands.Bot("!", intents=intents)  
 
 
 # Carregar cogs automaticamente
@@ -30,8 +30,8 @@ async def on_ready():
 @bot.command()
 async def olá(ctx):
     usuario = ctx.author.display_name
-    await ctx.reply(f"Olá, {usuario}! Tudo bem? Use .menu para ver os meus comandos. :) ")
-    print(f"{usuario} utilizou .olá")
+    await ctx.reply(f"Olá, {usuario}! Tudo bem? Use menu para ver os meus comandos. :) ")
+    print(f"{usuario} utilizou !olá")
 
 @bot.command()
 async def ping(ctx):
@@ -42,7 +42,7 @@ async def ping(ctx):
 
     ms = (fim - inicio) * 1000
     await msg.edit(content=f"> Pong!🏓 - Demorei {ms:.2f}ms pra responder!")
-    print(f"{usuario} usou .ping")
+    print(f"{usuario} usou !ping")
 
 @bot.command()
 async def uptime(ctx):
@@ -55,38 +55,38 @@ async def uptime(ctx):
 
     await ctx.send(f"Meow! Tô aqui miando há {horas}h {minutos}m e {segundos}s. 🐾⏰")
     usuario = ctx.author.display_name
-    print(f"{usuario} usou .uptime")
+    print(f"{usuario} usou !uptime")
 
 @bot.command()
 async def joao(ctx):
     await ctx.reply("É viado kkkkkk")
     usuario = ctx.author.display_name
-    print(f"{usuario} utilizou .joao")
+    print(f"{usuario} utilizou !joao")
 
 @bot.command()
 async def gato(ctx):
     await ctx.reply("Meow!")
     usuario = ctx.author.display_name
-    print(f"{usuario} utilizou .gato")
+    print(f"{usuario} utilizou !gato")
 
 @bot.command()
 async def gata(ctx):
     await ctx.reply("Meow!")
     usuario = ctx.author.display_name
-    print(f"{usuario} utilizou .gata")
+    print(f"{usuario} utilizou !gata")
 
 @bot.command()
 async def cat(ctx):
     await ctx.reply("Meow!")
     usuario = ctx.author.display_name
-    print(f"{usuario} utilizou .cat")
+    print(f"{usuario} utilizou !cat")
 
 @bot.command()
 async def dono(ctx):
     dono_id = 829402485419409408
     await ctx.reply(f"Meu dono é o <@{dono_id}>!\nGitHub: https://github.com/VictorVzx")
     usuario = ctx.author.display_name
-    print(f"{usuario} usou .dono")
+    print(f"{usuario} usou !dono")
 
 
 @bot.command()
@@ -111,7 +111,7 @@ async def ban(ctx, membro: discord.Member, *, motivo="Nenhum motivo informado"):
         await ctx.send(f"> Erro ao tentar banir: {e}")
     
     usuario = ctx.author.display_name
-    print(f"{usuario} usou .ban")
+    print(f"{usuario} usou !ban")
 
 @bot.event
 async def on_member_join(member):
@@ -182,22 +182,22 @@ async def menu(ctx):
     await ctx.reply(
         "# 🐾 Menu 🐾\n"
         "## **Comandos:**\n"
-        " .menu --> Ver o menu de comandos do bot.\n"
-        " .ping --> Testar a velocidade de resposta do bot.\n"
-        " .uptime --> Ver há quanto tempo o bot está funcionando\n"
-        " .dono --> Informações sobre o dono do bot.\n"
-        " .gato/gata --> Miaaaaau.\n"
-        ".olá --> Saudações \n"
+        " !menu --> Ver o menu de comandos do bot.\n"
+        " !ping --> Testar a velocidade de resposta do bot.\n"
+        " !uptime --> Ver há quanto tempo o bot está funcionando\n"
+        " !dono --> Informações sobre o dono do bot.\n"
+        " !gato/gata --> Miaaaaau.\n"
+        "!olá --> Saudações \n"
         "## Comandos admin:\n"
-        " .clear *numero de mensagens --> Limpa as mensagens do chat.\n"
-        " .todos --> Marca todos do servidor.\n"
-        " .atividade jogando/ouvindo/assistindo + conteúdo --> Muda a atividade do bot.\n"
-        " .ban + motivo --> Banir membros do servidor\n"
-        " .role + @usuario + Cargo--> Dar um cargo ao membro mencionado.\n"
-        " .unrole + @usuario + Cargo --> Remover um cargo do membro mencionado\n"
+        " !clear *numero de mensagens --> Limpa as mensagens do chat.\n"
+        " !todos --> Marca todos do servidor.\n"
+        " !atividade jogando/ouvindo/assistindo + conteúdo --> Muda a atividade do bot.\n"
+        " !ban + motivo --> Banir membros do servidor\n"
+        " !role + @usuario + Cargo--> Dar um cargo ao membro mencionado.\n"
+        " !unrole + @usuario + Cargo --> Remover um cargo do membro mencionado\n"
     )
     usuario = ctx.author.display_name
-    print(f"{usuario} utilizou .menu")
+    print(f"{usuario} utilizou !menu")
 
 @bot.command()
 async def todos(ctx):
@@ -218,7 +218,7 @@ async def clear(ctx, quantidade: int):
 @tasks.loop(hours=1)
 async def lembrar_agua():
     channel = bot.get_channel(1440685459645661195)
-    await channel.send("Meow meow, use .menu para ver meus comandos e lembrem-se de beberem água! 💧🐾")
+    await channel.send("Meow meow, use !menu para ver meus comandos e lembrem-se de beberem água! 💧🐾")
     print("Lembrete enviado.")
 
     channel = bot.get_channel(1440685459645661195)
