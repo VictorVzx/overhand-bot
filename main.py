@@ -188,6 +188,7 @@ async def menu(ctx):
         " !dono --> Informações sobre o dono do bot.\n"
         " !gato/gata --> Miaaaaau.\n"
         "!olá --> Saudações \n"
+        "!site --> Site do bot com informações\n"
         "## Comandos admin:\n"
         " !clear *numero de mensagens --> Limpa as mensagens do chat.\n"
         " !todos --> Marca todos do servidor.\n"
