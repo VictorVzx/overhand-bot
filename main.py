@@ -225,11 +225,7 @@ async def clear(ctx, quantidade: int):
 @tasks.loop(hours=1)
 async def lembrar_agua():
     channel = bot.get_channel(1440685459645661195)
-    await channel.send("Meow meow, use !menu para ver meus comandos e lembrem-se de beberem água! 💧🐾")
-    print("Lembrete enviado.")
-
-    channel = bot.get_channel(1440685459645661195)
-    await channel.send(f"Siga VictorVzx no GitHub e veja mais projetos!\nhttps://github.com/VictorVzx")
+    await channel.send(f"Acesse a minha [página](https://overhandpg.vercel.app) para mais informações.")
     print("Anúncio enviado")
 
 @bot.command()
